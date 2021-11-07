@@ -20,7 +20,7 @@
 		<p> Huh. That seems harsh. It's ceratainly not an arithmetic sequence, nor the primes, nor anything well known. After a few unsuccesful tries to tackle the problem you might look at the difference of the censecutive numbers. 1 minus 0 is 1, 5 minus 1 is 4, 14 minus 5 is 9, 30 minus 14 is 16... Oh! These are the squares of integers! The next square is 7<sup>2</sup> = 49 and the answer is therefore 91 + 49 which is 140. The problem solved. </p>
 		<p> If you're a mathematician, you cannot just stop here. <em> What exactly was that sequence? </em> Could you comupute the <i>i</i>-th element of the sequence without knowing the previous ones? </p>
 			</section>
-		<section class="problem">
+		<section class="problem" id="problem1">
 			<div class="problem-header">
 				<h4> Problem 1.1 </h4>
 			</div>
@@ -40,7 +40,7 @@
 		<p> But the proven formula seems to be working generally. It appears as if taking the differnces of consecutive elements had exatly the opposite effect than the partial summing. Mathematically spoken these two operations seem to be inverses of each other. However before formulating this hypothesis it's always handy to clean up the notation a bit. </p>
 		<p> The operation described above is usually called forward difference and is denoted as &Delta; as that's a common symbol for substraction. With this notation in hand, the hypothesis can be formulated as: <i> a<sub>i</sub> = &Sigma;<sub>k=0</sub><sup>i-1</sup> (&Delta;a)<sub>k</sub> </i> for any sequence <i>a</i>. </p>
 		</section>
-		<section class="problem">
+		<section class="problem" id="problem2">
 			<div class="problem-header">
 				<h4> Problem 1.2 </h4>
 			</div>
@@ -60,7 +60,7 @@
 		<p>This formula enables us to compute the original sequence if we know the differences of consecutive terms or if we know the sequence of parital sums. It's enough to solve the IQ test, but otherwise it's very impractical - we still have to compute the sum or calculate the difference. We will see in the next chapter how to overcome this problem. </p>
 
 		</section>
-		<section class="problem">
+		<section class="problem" id="problem3">
 			<div class="problem-header">
 				<h4> Problem 1.3 </h4>
 			</div>

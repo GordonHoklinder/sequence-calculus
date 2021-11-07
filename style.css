@@ -5,13 +5,16 @@ body {
 	margin-right: auto;
 }
 
+p {
+	text-align: justify;
+}
+
 article h4 {
 	font-size: 20px;
 	text-align: center;
 }
 article p {
 	font-size: 20px;
-	text-align: justify;
 }
 
 article h1 {
@@ -53,4 +56,21 @@ article h1 {
 	color: #F08243;
 }
 
+#bottom-nav {
+	text-align: center;
+}
 
+#bottom-nav > a {
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+
+#bottom-nav {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+#bottom-nav > a + a {
+	margin-left: 1em;
+}
