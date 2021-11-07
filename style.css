@@ -1,0 +1,56 @@
+body {
+	font-family: serif;
+	max-width: 50em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+article h4 {
+	font-size: 20px;
+	text-align: center;
+}
+article p {
+	font-size: 20px;
+	text-align: justify;
+}
+
+article h1 {
+	font-size: 26px;
+	text-align: center;
+}
+
+.center p {
+	text-align: center;
+}
+
+.problem {
+	border: 2px #F08243 solid;
+	background-color: #E5C8B8;
+	border-radius: 5px;
+	margin-left: 5em;
+	margin-right: 5em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.problem > .problem-header {
+	border-bottom: 2px #F08243 solid;
+}
+
+.problem > .solution > .hidden-solution {
+	visibility: hidden;
+	max-height: 0px;
+}
+
+.problem > .solution:hover > .hidden-solution {
+	visibility: visible;
+	max-height: 100%;
+}
+
+.problem > .solution > p {
+	color: #F08243;
+}
+
+

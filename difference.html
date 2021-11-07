@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Title of the document</title>
+	    <link rel="stylesheet" href="style.css">
+			<title>Chapter 1</title>
 	</head>
 
 	<body>
-		<h1> Sequence differences </h1>
+		<article>
+			<section>
+		<h1> Chapter 1: Analyzing sequences </h1>
 
 		<p> Imagine you're undertaking an IQ test and you've been given the following question: </p>
 
 		<div class="center">
-			<p> What number should be placed instead of the question mark? </p>
-			<div class="math">
+			<p> <em>What number should be placed instead of the question mark?</em> </p>
 				<p> 0 1 5 14 30 55 91 <strong> ? </strong> </p>
-			</div>
 		</div>
 
 		<p> Huh. That seems harsh. It's ceratainly not an arithmetic sequence, nor the primes, nor anything well known. After a few unsuccesful tries to tackle the problem you might look at the difference of the censecutive numbers. 1 minus 0 is 1, 5 minus 1 is 4, 14 minus 5 is 9, 30 minus 14 is 16... Oh! These are the squares of integers! The next square is 7<sup>2</sup> = 49 and the answer is therefore 91 + 49 which is 140. The problem solved. </p>
 		<p> If you're a mathematician, you cannot just stop here. <em> What exactly was that sequence? </em> Could you comupute the <i>i</i>-th element of the sequence without knowing the previous ones? </p>
-
-		<div class="problem">
+			</section>
+		<section class="problem">
 			<div class="problem-header">
-				<h4> Problem I </h4>
+				<h4> Problem 1.1 </h4>
 			</div>
 			<p> Let the sequence 0 1 5 14 ... be denoted <i>a</i>. Find the explicit formula for <i>a<sub>i</sub></i>. </p>
 			<div class="solution">
@@ -29,47 +30,49 @@
 				
 				<div class="hidden-solution">
 					<p> You can derive the solution by looking at the first few elements. </p>
-					<p> The first term is 0 which is 0<sup>2</sup>, the second is 1 = 0<sup>2</sup> + 1<sup>2</sup>, the third is 5 = 1 + 2<sup>2</sup> = 0<sup>2</sup> + 1<sup>2</sup> + 2<sup>2</sup>. And so on. This could be writen compactly using the sum notation as:</p> <p> <i> &Sigma;<sub>k=0</sub><sup>i</sup> k<sup>2</sup></i></p>.
+					<p> The first term is 0 which is 0<sup>2</sup>, the second is 1 = 0<sup>2</sup> + 1<sup>2</sup>, the third is 5 = 1 + 2<sup>2</sup> = 0<sup>2</sup> + 1<sup>2</sup> + 2<sup>2</sup>. And so on. This could be writen compactly using the sum notation as:<i> &Sigma;<sub>k=0</sub><sup>i</sup> k<sup>2</sup></i>.</p>
 					<p> Do not forget that such intuitive analysis is not a prove and unless it's proven you cannot be sure it's true. However proving this stamenent is not difficult and can be done via mathematical induction.</p>
 				</div>
 			</div>
-		</div>
-
+		</section>
+		<section>
 		<p> You can now state that the initial sequence is the series of the squares of natural integers. </p>
 		<p> But the proven formula seems to be working generally. It appears as if taking the differnces of consecutive elements had exatly the opposite effect than the partial summing. Mathematically spoken these two operations seem to be inverses of each other. However before formulating this hypothesis it's always handy to clean up the notation a bit. </p>
-		<p> The operation described above is usually called forward difference and is denoted as &Delta; as that's a common symbol for substraction. With this notation in hand, the hypothesis can be formulated as: <i> a<sub>i</sub> = &Sigma;<sub>k=0</sub><sup>i-1</sup> &Delta;a<sub>k</sub> </i> for any sequence <i>a</i>. </p>
-		<div class="problem">
+		<p> The operation described above is usually called forward difference and is denoted as &Delta; as that's a common symbol for substraction. With this notation in hand, the hypothesis can be formulated as: <i> a<sub>i</sub> = &Sigma;<sub>k=0</sub><sup>i-1</sup> (&Delta;a)<sub>k</sub> </i> for any sequence <i>a</i>. </p>
+		</section>
+		<section class="problem">
 			<div class="problem-header">
-				<h4> Problem II </h4>
+				<h4> Problem 1.2 </h4>
 			</div>
 			<p> Prove or disprove this hypothesis. </p>
 			<div class="solution">
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				
 				<div class="hidden-solution">
-					<p>This statement might seem intuitive. It should be quite the same as the previous case. However if you do the prove by induction correctly, you realize that the statement is acctually incorrect. The induction step holds, but the base case does not. The reason why it holds for the sequence 0 1 5 ... is that it begins with 0 - an empty sum is by definition 0 and therefore the base case holds.</p>
+					<p>This statement might seem intuitive. It should be quite the same as the previous case. However if you do the prove by induction correctly, you realize that the statement is acctually false. The induction step holds, but the base case does not. The reason why it holds for the sequence 0 1 5 ... is that it begins with 0 - an empty sum is by definition 0 and therefore the base case holds.</p>
 				</div>
 			</div>
-		</div>
+		</section>
+		<section>
+		<p>This hypothesis turns out to be generally false. There are sequences for which the statement is true though - those which start by 0. If you realize this, it's not that hard to fix the statement - just add the first term to all terms as a constant. The final version of equation is this: <i> a<sub>i</sub> = a<sub>0</sub>&Sigma;<sub>k=0</sub><sup>i-1</sup> (&Delta;a)<sub>k</sub> </i> for any sequence <i>a</i>. </p>
 
-		<p>This hypothesis turns out to be generally false. There are sequences for which the statement is true though - those which start by 0. If you realize this, it's not that hard to fix the statement - just add the first term to all terms as a constant. The final version of equation is this: <i> a<sub>i</sub> = a<sub>0</sub>&Sigma;<sub>k=0</sub><sup>i-1</sup> &Delta;a<sub>k</sub> </i> for any sequence <i>a</i>. </p>
-
-		<p>If you are familiar with the standard calculus, this might remind you of the classic <em>Don't forget the C term!</em> This is not a coincidence. In fact the calculus of sequences and the calculus of funcions are intertiwned - the partial sums play the role of Newton integral, forwarrd differences the role of derivatives and the theorem you've just derived is 'the Newton-Leibniz formula of sequences.' We will se why this is the case in later chapters. </p>
+		<p>If you are familiar with the standard calculus, this might remind you of the classic <em>Don't forget the C term!</em> This is not a coincidence. In fact the calculus of sequences and the calculus of funcions are intertwined - the partial sums play the role of Newton integral, forwarrd differences the role of derivatives and the theorem you've just derived is 'the Newton-Leibniz formula of sequences.' We will se why this is the case in later chapters. </p>
 		<p>This formula enables us to compute the original sequence if we know the differences of consecutive terms or if we know the sequence of parital sums. It's enough to solve the IQ test, but otherwise it's very impractical - we still have to compute the sum or calculate the difference. We will see in the next chapter how to overcome this problem. </p>
 
-
-		<div class="problem">
+		</section>
+		<section class="problem">
 			<div class="problem-header">
-				<h4> Problem III </h4>
+				<h4> Problem 1.3 </h4>
 			</div>
-			<p>A boy built cubes from wooden blocks. He built a 1x1x1 cube the first day and each other day he extended the side of the cube by one (i.e. the second day he had a cube 2x2x2). How many blocks did he have to buy each day.</p>
+			<p>A boy built cubes from wooden blocks. He built a 1&#215;1&#215;1 cube the first day and each other day he extended the side of the cube by one (i.e. the second day he had a cube 2&#215;2&#215;2). How many blocks did he have to buy each day?</p>
 			<div class="solution">
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				
 				<div class="hidden-solution">
-					<p>The sequence is <i>a<sub>i</sub> = i<sup>3</sup></i>, the difference is then <i>&Delta;a<sub>i</sub> = 3i<sup>2</sup>+3i+1</i>.
+					<p>The sequence is <i>a<sub>i</sub> = i<sup>3</sup></i>, the difference is then <i>(&Delta;a)<sub>i</sub> = 3i<sup>2</sup>+3i+1</i>. He therefore bought <i>(&Delta;a)<sub>i</sub> = 3i<sup>2</sup>+3i+1</i> blocks on <i>i</i>-th day.
 				</div>
 			</div>
-		</div>
+		</section>
+		</article>
 	</body> 
 </html> 
