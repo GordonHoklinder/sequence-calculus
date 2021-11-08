@@ -10,73 +10,72 @@
 			<section>
 		<h1> Chapter 2: Analyzing sequences </h1>
 
-		<p>Imagine you're undertaking an IQ test and you've been given the following question: </p>
-
-		<div class="center">
-			<p> <em>What number should be placed instead of the question mark?</em> </p>
-				<p> 0 1 5 14 30 55 91 <strong> ? </strong> </p>
-		</div>
-
-		<p> Huh. That seems harsh. It's ceratainly not an arithmetic sequence, nor the primes, nor anything well known. After a few unsuccesful tries to tackle the problem you might look at the difference of the censecutive numbers. 1 minus 0 is 1, 5 minus 1 is 4, 14 minus 5 is 9, 30 minus 14 is 16... Oh! These are the squares of integers! The next square is 7<sup>2</sup> = 49 and the answer is therefore 91 + 49 which is 140. The problem solved. </p>
-		<p> If you're a mathematician, you cannot just stop here. <em> What exactly was that sequence? </em> Could you comupute the <i>i</i>-th element of the sequence without knowing the previous ones? </p>
+		<p>When you first saw the sequence 1 5 14 ..., the process of taking the differences might have seemed quite arbitrary. As this approach worked for this particular sequence, the natural is whether this works generally. <em>What happens to other sequences when you apply forward difference to them? Or what if you apply it multiple times?</em></p>
+		<p>You've seen at the end of the last chapter, that taking forward differences of a polynomial sequence results in another polynomial sequence (which is true in general, but you'll get to this), albeit it may be computationally quite cumbersome, especially for large polynomials. Now it's time to answer the second question - the process of applying differences to multiple times is often denoted <i>&Delta<sup>k</sup></i>.</p>
 			</section>
 		<section class="problem" id="problem1">
 			<div class="problem-header">
-				<h4> Problem 1.1 </h4>
+				<h4> Problem 2.1 </h4>
 			</div>
-			<p> Let the sequence 0 1 5 14 ... be denoted <i>a</i>. Find the explicit formula for <i>a<sub>i</sub></i>. </p>
+			<p> Let the sequence 0 1 5 14 ... be denoted <i>a</i>. Compute <i>&Delta;<sup>k</sup>(a)</i> for all <i>k</i>. </p>
 			<div class="solution">
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				
 				<div class="hidden-solution">
-					<p> You can derive the solution by looking at the first few elements. </p>
-					<p> The first term is 0 which is 0<sup>2</sup>, the second is 1 = 0<sup>2</sup> + 1<sup>2</sup>, the third is 5 = 1 + 2<sup>2</sup> = 0<sup>2</sup> + 1<sup>2</sup> + 2<sup>2</sup>. And so on. This could be writen compactly using the sum notation as:<i> &Sigma;<sub>k=0</sub><sup>i</sup> k<sup>2</sup></i>.</p>
-					<p> Do not forget that such intuitive analysis is not a prove and unless it's proven you cannot be sure it's true. However proving this stamenent is not difficult and can be done via mathematical induction.</p>
+					<p> <i>&Delta;(a)<sub>i</sub> = i<sup>2</sup></i> as you've seen.</p>
+					<p> <i>&Delta;<sup>2</sup>(a)<sub>i</sub> = 2i+1</i></p>
+					<p> <i>&Delta;<sup>3</sup>(a)<sub>i</sub> = 2</i></p>
+					<p> <i>&Delta;<sup>k</sup>(a)<sub>i</sub> = 2</i> for all <i>k>3</i>.</p>
 				</div>
 			</div>
 		</section>
 		<section>
-		<p> You can now state that the initial sequence is the series of the squares of natural integers. </p>
-		<p> But the proven formula seems to be working generally. It appears as if taking the differnces of consecutive elements had exatly the opposite effect than the partial summing. Mathematically spoken these two operations seem to be inverses of each other. However before formulating this hypothesis it's always handy to clean up the notation a bit. </p>
-		<p> The operation described above is usually called forward difference and is denoted as &Delta; as that's a common symbol for substraction. With this notation in hand, the hypothesis can be formulated as: <i> a<sub>i</sub> = &Sigma;<sub>k=0</sub><sup>i-1</sup> (&Delta;a)<sub>k</sub> </i> for any sequence <i>a</i>. </p>
+			<p>Interesting. After applying the difference four times, the sequence wanished and all there is left are zeros. <em>Is it just a coincidence? Or a general phenomenon?</em> You might intuitively see that this shouldn't be the case for all the sequences. Somehow there shouldn't be enough degrees of freedom. But can you prove it? </p>
 		</section>
 		<section class="problem" id="problem2">
 			<div class="problem-header">
-				<h4> Problem 1.2 </h4>
+				<h4> Problem 2.2 </h4>
 			</div>
-			<p> Prove or disprove this hypothesis. </p>
+			<p>Find an example of a sequence whose <i>k</i>-th difference is never zero.</p>
 			<div class="solution">
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				
 				<div class="hidden-solution">
-					<p>This statement might seem intuitive. It should be quite the same as the previous case. However if you do the prove by induction correctly, you realize that the statement is acctually false. The induction step holds, but the base case does not. The reason why it holds for the sequence 0 1 5 ... is that it begins with 0 - an empty sum is by definition 0 and therefore the base case holds.</p>
+					<p>Perhaps the easiest way how to find such sequence is to find a nonzero seqence which does not change when you apply forward difference to it. If you find it, than its difference can never be zero. If you set <i>a<sub>0</sub> = 1</i>, you find that the sequence of powers of two fullfils these constrains.</p>
 				</div>
 			</div>
 		</section>
 		<section>
-		<p>This hypothesis turns out to be generally false. There are sequences for which the statement is true though - those which start by 0. If you realize this, it's not that hard to fix the statement - just add the first term to all terms as a constant. The final version of equation is this: <i> a<sub>i</sub> = a<sub>0</sub>&Sigma;<sub>k=0</sub><sup>i-1</sup> (&Delta;a)<sub>k</sub> </i> for any sequence <i>a</i>. </p>
+			<p>After verifiying that there are sequences which never become zero, the natural follow up is <em>which sequences do terminate?</em> You could dive into the swamp of computations and find the answer, but it might be easier to first find sequences which behave nicely.</p>
+			<p>What does it mean to behave <em>nicely</em>? Firstly, it should be possible to turn it into a sequence of zeros by applying multiple forward differences. Secondly, it should be easy to compute their differences (and best of all there partial sums as well). The last example from the previous chapter does not fullfil this as it was not possible to see the solution at a glance (athough it wasn't difficult to compute it).</p>
+			<p>This was not very concrete indeed. The only way how to tackle this is try to spot a pattern. Let's write the desired function with its difference into a table.</p>
+			<table>
 
-		<p>If you are familiar with the standard calculus, this might remind you of the classic <em>Don't forget the C term!</em> This is not a coincidence. In fact the calculus of sequences and the calculus of funcions are intertwined - the partial sums play the role of Newton integral, forwarrd differences the role of derivatives and the theorem you've just derived is 'the Newton-Leibniz formula of sequences.' We will se why this is the case in later chapters. </p>
-		<p>This formula enables us to compute the original sequence if we know the differences of consecutive terms or if we know the sequence of parital sums. It's enough to solve the IQ test, but otherwise it's very impractical - we still have to compute the sum or calculate the difference. We will see in the next chapter how to overcome this problem. </p>
+			</table>
+			<p>Adding a value from the bottom row to a value from the upper row gives the next number in that row. Sounds familiar? No? What if you rotate the table?</p>
+			<image>
 
-		</section>
+			</image>
+			<p>That look just like a part of Pascal's triangle! The rows in our original table play the role of the diagonals in Pascal's triangle. But you know that the <i>k</i>-th diagonal (or rather antidiagonal) represents the sequence of binomial coefficients <span class="big">(</span> <i><span class="sub-sup"><sup>n</sup><sub>k</sub></i> <span class="big">)</span>. </p>
+
+				</section>
 		<section class="problem" id="problem3">
 			<div class="problem-header">
-				<h4> Problem 1.3 </h4>
+				<h4> Problem 2.3 </h4>
 			</div>
-			<p>A boy built cubes from wooden blocks. He built a 1&#215;1&#215;1 cube the first day and each other day he extended the side of the cube by one (i.e. the second day he had a cube 2&#215;2&#215;2). How many blocks did he have to buy each day?</p>
+			<p>Verify that for sequence <i>a<sub>i</sub></i> = <span class="big">(</span> <i><span class="sub-sup"><sup>i</sup><sub>k</sub></i> <span class="big">)</span>, <i>(&Delta;a)<sub>i</sub> = </i><span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span></p>
 			<div class="solution">
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				
 				<div class="hidden-solution">
-					<p>The sequence is <i>a<sub>i</sub> = i<sup>3</sup></i>, the difference is then <i>(&Delta;a)<sub>i</sub> = 3i<sup>2</sup>+3i+1</i>. He therefore bought <i>(&Delta;a)<sub>i</sub> = 3i<sup>2</sup>+3i+1</i> blocks on <i>i</i>-th day.
+					<p> </p>
 				</div>
 			</div>
 		</section>
 		</article>
 	</body> 
 	<div id="bottom-nav">
+		<a href="chapter1.html">Předchozí kapitola</a>
 		<a href="index.html">Domů</a>
-		<a href="chapter2.html">Další kapitola</a>
 	</div>
 </html> 
