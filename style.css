@@ -74,3 +74,15 @@ article h1 {
 #bottom-nav > a + a {
 	margin-left: 1em;
 }
+
+.sub-sup {
+	display: inline-block;
+}
+
+.sub-sup > * {
+	display: block;
+	position: relative;
+	left: 2px;
+	top: 8px;
+}
+

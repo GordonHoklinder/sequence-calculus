@@ -38,7 +38,7 @@
 		<section>
 		<p> You can now state that the initial sequence is the series of the squares of natural integers. </p>
 		<p> But the proven formula seems to be working generally. It appears as if taking the differences of consecutive elements had exactly the opposite effect than the partial summing. Mathematically spoken these two operations seem to be inverses of each other. However before formulating this hypothesis it's always handy to clean up the notation a bit. </p>
-		<p> The operation described above is usually called forward difference and is denoted as &Delta; as that's a common symbol for subtraction. With this notation in hand, the hypothesis can be formulated as: <i> a<sub>i</sub> = &Sigma;<sub>k=0</sub><sup>i-1</sup> (&Delta;a)<sub>k</sub> </i> for any sequence <i>a</i>. </p>
+		<p> The operation described above is usually called forward difference and is denoted as &Delta; as that's a common symbol for subtraction. With this notation in hand, the hypothesis can be formulated as: <i> a<sub>i</sub> = &Sigma;<span class="sub-sup"><sub>k=0</sub><sup>i-1</sup></span>(&Delta;a)<sub>k</sub></i> for any sequence <i>a</i>. </p>
 		</section>
 		<section class="problem" id="problem2">
 			<div class="problem-header">
@@ -54,7 +54,7 @@
 			</div>
 		</section>
 		<section>
-		<p>This hypothesis turns out to be generally false. There are sequences for which the statement is true though - those which start by 0. If you realize this, it's not that hard to fix the statement - just add the first term to all terms as a constant. The final version of equation is this: <i> a<sub>i</sub> = a<sub>0</sub>&Sigma;<sub>k=0</sub><sup>i-1</sup> (&Delta;a)<sub>k</sub> </i> for any sequence <i>a</i>. </p>
+			<p>This hypothesis turns out to be generally false. There are sequences for which the statement is true though - those which start by 0. If you realize this, it's not that hard to fix the statement - just add the first term to all terms as a constant. The final version of equation is this: <i> a<sub>i</sub> = a<sub>0</sub> &Sigma;<span class="sub-sup"><sub>k=0</sub><sup>i-1</sup></span>(&Delta;a)<sub>k</sub> </i> for any sequence <i>a</i>. </p>
 
 		<p>If you are familiar with the standard calculus, this might remind you of the classic <em>Don't forget the C term!</em> This is not a coincidence. In fact the calculus of sequences and the calculus of functions are intertwined - the partial sums play the role of Newton integral, forward differences the role of derivatives and the theorem you've just derived is 'the Newton-Leibniz formula of sequences.' We will see why this is the case in later chapters. </p>
 		<p>This formula enables us to compute the original sequence if we know the differences of consecutive terms or if we know the sequence of partial sums. It's enough to solve the IQ test, but otherwise it's very impractical - we still have to compute the sum or calculate the difference. We will see in the next chapter how to overcome this problem. </p>
