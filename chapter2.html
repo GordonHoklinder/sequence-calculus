@@ -8,7 +8,7 @@
 	<body>
 		<article>
 			<section>
-		<h1> Chapter 2: Analyzing sequences </h1>
+		<h1> Chapter 2: Behaviour of sequences under forward difference</h1>
 
 		<p>When you first saw the sequence 1 5 14 ..., the process of taking the differences might have seemed quite arbitrary. As this approach worked for this particular sequence, the natural is whether this works generally. <em>What happens to other sequences when you apply forward difference to them? Or what if you apply it multiple times?</em></p>
 		<p>You've seen at the end of the last chapter, that taking forward differences of a polynomial sequence results in another polynomial sequence (which is true in general, but you'll get to this), albeit it may be computationally quite cumbersome, especially for large polynomials. Now it's time to answer the second question - the process of applying differences to multiple times is often denoted <i>&Delta<sup>k</sup></i>.</p>
@@ -30,7 +30,7 @@
 			</div>
 		</section>
 		<section>
-			<p>Interesting. After applying the difference four times, the sequence wanished and all there is left are zeros. <em>Is it just a coincidence? Or a general phenomenon?</em> You might intuitively see that this shouldn't be the case for all the sequences. Somehow there shouldn't be enough degrees of freedom. But can you prove it? </p>
+			<p>Interesting. After applying the difference four times, the sequence vanished and all there is left are zeros. <em>Is it just a coincidence? Or a general phenomenon?</em> You might intuitively see that this shouldn't be the case for all the sequences. Somehow there shouldn't be enough degrees of freedom. But can you prove it? </p>
 		</section>
 		<section class="problem" id="problem2">
 			<div class="problem-header">
@@ -41,13 +41,13 @@
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				
 				<div class="hidden-solution">
-					<p>Perhaps the easiest way how to find such sequence is to find a nonzero seqence which does not change when you apply forward difference to it. If you find it, than its difference can never be zero. If you set <i>a<sub>0</sub> = 1</i>, you find that the sequence of powers of two fullfils these constrains.</p>
+					<p>Perhaps the easiest way how to find such sequence is to find a nonzero sequence which does not change when you apply forward difference to it. If you find it, than its difference can never be zero. If you set <i>a<sub>0</sub> = 1</i>, you find that the sequence of powers of two fulfills these constrains.</p>
 				</div>
 			</div>
 		</section>
 		<section>
-			<p>After verifiying that there are sequences which never become zero, the natural follow up is <em>which sequences do terminate?</em> You could dive into the swamp of computations and find the answer, but it might be easier to first find sequences which behave nicely.</p>
-			<p>What does it mean to behave <em>nicely</em>? Firstly, it should be possible to turn it into a sequence of zeros by applying multiple forward differences. Secondly, it should be easy to compute their differences (and best of all there partial sums as well). The last example from the previous chapter does not fullfil this as it was not possible to see the solution at a glance (athough it wasn't difficult to compute it).</p>
+			<p>After verifying that there are sequences which never become zero, the natural follow up is <em>which sequences do terminate?</em> You could dive into the swamp of computations and find the answer, but it might be easier to first find sequences which behave nicely.</p>
+			<p>What does it mean to behave <em>nicely</em>? Firstly, it should be possible to turn it into a sequence of zeros by applying multiple forward differences. Secondly, it should be easy to compute their differences (and best of all there partial sums as well). The last example from the previous chapter does not fulfill this as it was not possible to see the solution at a glance (although it wasn't difficult to compute it).</p>
 			<p>This was not very concrete indeed. The only way how to tackle this is try to spot a pattern. Let's write the desired function with its difference into a table.</p>
 			<table>
 
@@ -68,13 +68,13 @@
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				<div class="hidden-solution">
 					<p>
-				This could be solved algebraically, where you could a few properties of binomial coefficients, but there's also a combinatorial solution. We're ineterested in the number of ways how to choose <i>k</i> elements from <i>i+1</i> (later reffered as the first set) elements minus the number of ways how to choose <i>k</i> elements from <i>i</i> elements (the second set). As the second set is a subset of the first set, you're looking for the number of unordered sets of size <i>k</i> which are a subset of the first set, but not the second. That means they all have to contain the last element from the first set. When this is satisfied the last <i>k-1</i> elements can be chosen arbitrarily from the other <i>i</i> elements. But there are exactly <span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span> way how to choose it and the statement holds for <i>k>0<i> but we can check that it holds for 0 as well and the statemnet is therefore true.
+				This could be solved algebraically, where you could a few properties of binomial coefficients, but there's also a combinatorial solution. We're interested in the number of ways how to choose <i>k</i> elements from <i>i+1</i> (later referred as the first set) elements minus the number of ways how to choose <i>k</i> elements from <i>i</i> elements (the second set). As the second set is a subset of the first set, you're looking for the number of unordered sets of size <i>k</i> which are a subset of the first set, but not the second. That means they all have to contain the last element from the first set. When this is satisfied the last <i>k-1</i> elements can be chosen arbitrarily from the other <i>i</i> elements. But there are exactly <span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span> way how to choose it and the statement holds for <i>k>0<i> but we can check that it holds for 0 as well and the statement is therefore true.
 					</p>
 				</div>
 			</div>
 		</section>
 		<section>
-			<p>With this statement proven, it's easy to see that such sequence results in a sequence of zeros when differenced <i>k+1</i> times. With each difference the order of binomial coefficient decreases and therefore it must eventually become negative which means it's by deffinition zero. </p>					<p>These are for sure not the only sequences which lead to zero sequences when differenced mulitple times. You've seen in the first problem that the series of squares shares this property, but that is certainly not a binomial coefficient.</p>
+			<p>With this statement proven, it's easy to see that such sequence results in a sequence of zeros when differenced <i>k+1</i> times. With each difference the order of binomial coefficient decreases and therefore it must eventually become negative which means it's by definition zero. </p>					<p>These are for sure not the only sequences which lead to zero sequences when differenced multiple times. You've seen in the first problem that the series of squares shares this property, but that is certainly not a binomial coefficient.</p>
 			<p>There are two properties of the differences which can help us to get other sequences which can be differenced to zero. First - if you multiply a sequence by a constant and take a difference of that sequence it's the same as if you took the difference and multiplied it by that same constant. Second - if you sum two sequences and take the difference it's the same as if you did it in the reversed order. These properties are not difficult to prove and you're encouraged to do so if you don't see it at the first glance.</p>
 			<p>From these properties follows that if we take any linear combination of sequences of binomial coefficient they can be reduced to zero by applying differences.</p>
 			<p>With this discovery new questions arose. <em>Are there any other sequences that these which can be reduced to zero? And which sequences are the linear combinations of sequences of binomial coefficients?</em> You might have guessed the answer to the second question. These should be the polynomials. But such statement requires a proof.</p>
@@ -88,17 +88,17 @@
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				<div class="hidden-solution">
 					<p>
-						This proof should have two parts. The verification that all sequences of binomial coefficients can be writen as polynomials and that all the power sequences can be written as a linear combination of sequences of binomial coefficients.
+						This proof should have two parts. The verification that all sequences of binomial coefficients can be written as polynomials and that all the power sequences can be written as a linear combination of sequences of binomial coefficients.
 					</p>
 					<p>
-						The first part is quite easy. A binomail coefficient of class <i>k</i> is by definition a product of <i>k</i> polynomials of degree 1. It is therefore a polynomial of degree <i>k</i>.
+						The first part is quite easy. A binomial coefficient of class <i>k</i> is by definition a product of <i>k</i> polynomials of degree 1. It is therefore a polynomial of degree <i>k</i>.
 					</p>
 					<p>
 						The second part is a bit harder and could've been done using the mathematical induction once again - we can get a polynomial with degree one less if we subtract an appropriate multiple of an appropriate binomial coefficient.
 					</p>
 					<p>However there is also prettier and perhaps more difficult to understand solution using linear algebra. If you're not familiar with it feel free to skip this.</p>
 					<p>
-						We want to shove that two vector spaces with two different basis vectors are isomorph. That means that there should be a matrix A which tranforms one basis vector to the other and vice versa. We can transform the powers into the binomial coefficients easily - the <i>k</i>-th binomial coefficient is a polynomial of degree <i>k</i>. We therefore have the matrix A for this tranformation. Note that as the degree is k in the k-th row, the matrix is bottom triangular and has non zero elements on the diagonal. That means it's regular and therefore has an inverse (which is also a bottom triangular matrix). But its inverse transforms the binomial coefficients into the powers and the two vector spaces are therefore equal.
+						We want to shove that two vector spaces with two different basis vectors are isomorph. That means that there should be a matrix A which transforms one basis vector to the other and vice versa. We can transform the powers into the binomial coefficients easily - the <i>k</i>-th binomial coefficient is a polynomial of degree <i>k</i>. We therefore have the matrix A for this transformation. Note that as the degree is k in the k-th row, the matrix is bottom triangular and has non zero elements on the diagonal. That means it's regular and therefore has an inverse (which is also a bottom triangular matrix). But its inverse transforms the binomial coefficients into the powers and the two vector spaces are therefore equal.
 					</p>
 				</div>
 			</div>
@@ -116,7 +116,7 @@
 		</article>
 	</body> 
 	<div id="bottom-nav">
-		<a href="chapter1.html">Předchozí kapitola</a>
-		<a href="index.html">Domů</a>
+		<a href="chapter1.html">Previous chapter</a>
+		<a href="index.html">Home</a>
 	</div>
 </html> 
