@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 	    <link rel="stylesheet" href="style.css">
-			<title>Chapter 1</title>
+			<title>Chapter 2</title>
+		<meta name="author" content="Ondřej Sladký">
+		<meta charset="UTF-8">
 	</head>
 
 	<body>
@@ -11,7 +13,7 @@
 		<h1> Chapter 2: Behaviour of sequences under forward difference</h1>
 
 		<p>When you first saw the sequence 1 5 14 ..., the process of taking the differences might have seemed quite arbitrary. As this approach worked for this particular sequence, the natural is whether this works generally. <em>What happens to other sequences when you apply forward difference to them? Or what if you apply it multiple times?</em></p>
-		<p>You've seen at the end of the last chapter, that taking forward differences of a polynomial sequence results in another polynomial sequence (which is true in general, but you'll get to this), albeit it may be computationally quite cumbersome, especially for large polynomials. Now it's time to answer the second question - the process of applying differences to multiple times is often denoted <i>&Delta<sup>k</sup></i>.</p>
+		<p>You've seen at the end of the last chapter, that taking forward differences of a polynomial sequence results in another polynomial sequence (which is true in general, but you'll get to this), albeit it may be computationally quite cumbersome, especially for large polynomials. Now it's time to answer the second question - the process of applying differences to multiple times is often denoted <i>&Delta;<sup>k</sup></i>.</p>
 			</section>
 		<section class="problem" id="problem1">
 			<div class="problem-header">
@@ -50,6 +52,17 @@
 			<p>What does it mean to behave <em>nicely</em>? Firstly, it should be possible to turn it into a sequence of zeros by applying multiple forward differences. Secondly, it should be easy to compute their differences (and best of all there partial sums as well). The last example from the previous chapter does not fulfill this as it was not possible to see the solution at a glance (although it wasn't difficult to compute it).</p>
 			<p>This was not very concrete indeed. The only way how to tackle this is try to spot a pattern. Let's write the desired function with its difference into a table.</p>
  <table>
+	 <thead>
+		<tr>
+			<th></th>
+			<th>First element</th>
+			<th>Second element</th>
+			<th>Third element</th>
+			<th>Fourth element</th>
+			<th>All other</th>
+		</tr>
+	 </thead>
+	 <tbody>
   <tr>
     <th>Forward difference</th>
 		<td>&Delta;a<sub>0</sub></td>
@@ -65,24 +78,25 @@
 		<td>a<sub>2</sub> + &Delta;a<sub>2</sub></td>
 		<td>a<sub>3</sub> + &Delta;a<sub>3</sub></td>
   </tr>
+	 </tbody>
 			</table>
 			<p>Adding a value from the bottom row to a value from the upper row gives the next number in that row. Sounds familiar? No? What if you rotate the table?</p>
 			<div class="center">
-			<img src="image.png">
+			<img src="image.png" alt="table-rotated-by-pi-sixths">
 			</div>
-			<p>That look just like a part of Pascal's triangle! The rows in our original table play the role of the diagonals in Pascal's triangle. But you know that the <i>k</i>-th diagonal  represents the sequence of binomial coefficients <span class="big">(</span> <i><span class="sub-sup"><sup>n</sup><sub>k</sub></i> <span class="big">)</span>. </p>
+			<p>That look just like a part of Pascal's triangle! The rows in our original table play the role of the diagonals in Pascal's triangle. But you know that the <i>k</i>-th diagonal  represents the sequence of binomial coefficients <span class="big">(</span> <i><span class="sub-sup"><sup>n</sup><sub>k</sub></span></i> <span class="big">)</span>. </p>
 
 				</section>
 		<section class="problem" id="problem3">
 			<div class="problem-header">
 				<h4> Problem 2.3 </h4>
 			</div>
-			<p>Verify that for sequence <i>a<sub>i</sub></i> = <span class="big">(</span> <i><span class="sub-sup"><sup>i</sup><sub>k</sub></i> <span class="big">)</span>, <i>(&Delta;a)<sub>i</sub> = </i><span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span></p>
+			<p>Verify that for sequence <i>a<sub>i</sub></i> = <span class="big">(</span> <i><span class="sub-sup"><sup>i</sup><sub>k</sub></span></i> <span class="big">)</span>, <i>(&Delta;a)<sub>i</sub> = </i><span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></span></i> <span class="big">)</span></p>
 			<div class="solution">
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				<div class="hidden-solution">
 					<p>
-				This could be solved algebraically, where you could a few properties of binomial coefficients, but there's also a combinatorial solution. We're interested in the number of ways how to choose <i>k</i> elements from <i>i+1</i> (later referred as the first set) elements minus the number of ways how to choose <i>k</i> elements from <i>i</i> elements (the second set). As the second set is a subset of the first set, you're looking for the number of unordered sets of size <i>k</i> which are a subset of the first set, but not the second. That means they all have to contain the last element from the first set. When this is satisfied the last <i>k-1</i> elements can be chosen arbitrarily from the other <i>i</i> elements. But there are exactly <span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span> way how to choose it and the statement holds for <i>k>0</i> but you can check that it holds for 0 as well and the statement is therefore true.
+						This could be solved algebraically, where you could a few properties of binomial coefficients, but there's also a combinatorial solution. We're interested in the number of ways how to choose <i>k</i> elements from <i>i+1</i> (later referred as the first set) elements minus the number of ways how to choose <i>k</i> elements from <i>i</i> elements (the second set). As the second set is a subset of the first set, you're looking for the number of unordered sets of size <i>k</i> which are a subset of the first set, but not the second. That means they all have to contain the last element from the first set. When this is satisfied the last <i>k-1</i> elements can be chosen arbitrarily from the other <i>i</i> elements. But there are exactly <span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></span></i> <span class="big">)</span> way how to choose it and the statement holds for <i>k>0</i> but you can check that it holds for 0 as well and the statement is therefore true.
 					</p>
 				</div>
 			</div>
@@ -128,9 +142,9 @@
 			</p>
 		</section>
 		</article>
-	</body> 
 	<div id="bottom-nav">
 		<a href="chapter1.html">Previous chapter</a>
 		<a href="index.html">Home</a>
 	</div>
+	</body> 
 </html> 
