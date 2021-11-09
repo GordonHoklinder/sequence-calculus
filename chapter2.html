@@ -49,14 +49,28 @@
 			<p>After verifying that there are sequences which never become zero, the natural follow up is <em>which sequences do terminate?</em> You could dive into the swamp of computations and find the answer, but it might be easier to first find sequences which behave nicely.</p>
 			<p>What does it mean to behave <em>nicely</em>? Firstly, it should be possible to turn it into a sequence of zeros by applying multiple forward differences. Secondly, it should be easy to compute their differences (and best of all there partial sums as well). The last example from the previous chapter does not fulfill this as it was not possible to see the solution at a glance (although it wasn't difficult to compute it).</p>
 			<p>This was not very concrete indeed. The only way how to tackle this is try to spot a pattern. Let's write the desired function with its difference into a table.</p>
-			<table>
-
+ <table>
+  <tr>
+    <th>Forward difference</th>
+		<td>&Delta;a<sub>0</sub></td>
+		<td>&Delta;a<sub>1</sub></td>
+		<td>&Delta;a<sub>2</sub></td>
+		<td>&Delta;a<sub>3</sub></td>
+		<td rowspan="2">...</td>
+  </tr>
+  <tr>
+    <th>Original sequence</th>
+		<td>a<sub>0</sub> + &Delta;a<sub>0</sub></td>
+		<td>a<sub>1</sub> + &Delta;a<sub>1</sub></td>
+		<td>a<sub>2</sub> + &Delta;a<sub>2</sub></td>
+		<td>a<sub>3</sub> + &Delta;a<sub>3</sub></td>
+  </tr>
 			</table>
 			<p>Adding a value from the bottom row to a value from the upper row gives the next number in that row. Sounds familiar? No? What if you rotate the table?</p>
-			<image>
-
-			</image>
-			<p>That look just like a part of Pascal's triangle! The rows in our original table play the role of the diagonals in Pascal's triangle. But you know that the <i>k</i>-th diagonal (or rather antidiagonal) represents the sequence of binomial coefficients <span class="big">(</span> <i><span class="sub-sup"><sup>n</sup><sub>k</sub></i> <span class="big">)</span>. </p>
+			<div class="center">
+			<img src="image.png">
+			</div>
+			<p>That look just like a part of Pascal's triangle! The rows in our original table play the role of the diagonals in Pascal's triangle. But you know that the <i>k</i>-th diagonal  represents the sequence of binomial coefficients <span class="big">(</span> <i><span class="sub-sup"><sup>n</sup><sub>k</sub></i> <span class="big">)</span>. </p>
 
 				</section>
 		<section class="problem" id="problem3">
@@ -68,7 +82,7 @@
 				<p> <em> The solution displays when you hover above it. </em> </p>
 				<div class="hidden-solution">
 					<p>
-				This could be solved algebraically, where you could a few properties of binomial coefficients, but there's also a combinatorial solution. We're interested in the number of ways how to choose <i>k</i> elements from <i>i+1</i> (later referred as the first set) elements minus the number of ways how to choose <i>k</i> elements from <i>i</i> elements (the second set). As the second set is a subset of the first set, you're looking for the number of unordered sets of size <i>k</i> which are a subset of the first set, but not the second. That means they all have to contain the last element from the first set. When this is satisfied the last <i>k-1</i> elements can be chosen arbitrarily from the other <i>i</i> elements. But there are exactly <span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span> way how to choose it and the statement holds for <i>k>0<i> but we can check that it holds for 0 as well and the statement is therefore true.
+				This could be solved algebraically, where you could a few properties of binomial coefficients, but there's also a combinatorial solution. We're interested in the number of ways how to choose <i>k</i> elements from <i>i+1</i> (later referred as the first set) elements minus the number of ways how to choose <i>k</i> elements from <i>i</i> elements (the second set). As the second set is a subset of the first set, you're looking for the number of unordered sets of size <i>k</i> which are a subset of the first set, but not the second. That means they all have to contain the last element from the first set. When this is satisfied the last <i>k-1</i> elements can be chosen arbitrarily from the other <i>i</i> elements. But there are exactly <span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span> way how to choose it and the statement holds for <i>k>0</i> but you can check that it holds for 0 as well and the statement is therefore true.
 					</p>
 				</div>
 			</div>
@@ -76,7 +90,7 @@
 		<section>
 			<p>With this statement proven, it's easy to see that such sequence results in a sequence of zeros when differenced <i>k+1</i> times. With each difference the order of binomial coefficient decreases and therefore it must eventually become negative which means it's by definition zero. </p>					<p>These are for sure not the only sequences which lead to zero sequences when differenced multiple times. You've seen in the first problem that the series of squares shares this property, but that is certainly not a binomial coefficient.</p>
 			<p>There are two properties of the differences which can help us to get other sequences which can be differenced to zero. First - if you multiply a sequence by a constant and take a difference of that sequence it's the same as if you took the difference and multiplied it by that same constant. Second - if you sum two sequences and take the difference it's the same as if you did it in the reversed order. These properties are not difficult to prove and you're encouraged to do so if you don't see it at the first glance.</p>
-			<p>From these properties follows that if we take any linear combination of sequences of binomial coefficient they can be reduced to zero by applying differences.</p>
+			<p>From these properties follows that if you take any linear combination of sequences of binomial coefficient they can be reduced to zero by applying differences.</p>
 			<p>With this discovery new questions arose. <em>Are there any other sequences that these which can be reduced to zero? And which sequences are the linear combinations of sequences of binomial coefficients?</em> You might have guessed the answer to the second question. These should be the polynomials. But such statement requires a proof.</p>
 		</section>
 		<section class="problem" id="problem4">
@@ -98,7 +112,7 @@
 					</p>
 					<p>However there is also prettier and perhaps more difficult to understand solution using linear algebra. If you're not familiar with it feel free to skip this.</p>
 					<p>
-						We want to shove that two vector spaces with two different basis vectors are isomorph. That means that there should be a matrix A which transforms one basis vector to the other and vice versa. We can transform the powers into the binomial coefficients easily - the <i>k</i>-th binomial coefficient is a polynomial of degree <i>k</i>. We therefore have the matrix A for this transformation. Note that as the degree is k in the k-th row, the matrix is bottom triangular and has non zero elements on the diagonal. That means it's regular and therefore has an inverse (which is also a bottom triangular matrix). But its inverse transforms the binomial coefficients into the powers and the two vector spaces are therefore equal.
+						You want to shove that two vector spaces with two different basis vectors are isomorph. That means that there should be a matrix A which transforms one basis vector to the other and vice versa. You can transform the powers into the binomial coefficients easily - the <i>k</i>-th binomial coefficient is a polynomial of degree <i>k</i>. You therefore have the matrix A for this transformation. Note that as the degree is k in the k-th row, the matrix is bottom triangular and has non zero elements on the diagonal. That means it's regular and therefore has an inverse (which is also a bottom triangular matrix). But its inverse transforms the binomial coefficients into the powers and the two vector spaces are therefore equal.
 					</p>
 				</div>
 			</div>

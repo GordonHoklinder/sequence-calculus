@@ -26,6 +26,10 @@ article h1 {
 	text-align: center;
 }
 
+.center {
+	text-align: center;
+}
+
 .problem {
 	border: 2px #F08243 solid;
 	background-color: #E5C8B8;
@@ -86,3 +90,24 @@ article h1 {
 	top: 8px;
 }
 
+td {
+	padding-left: 1em;
+	text-align: center;
+	font-style: italic;
+}
+
+table {
+	border: black solid 1px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img {
+	max-width: 35em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.big {
+	font-size: 30px;
+}
