@@ -66,11 +66,52 @@
 			<p>Verify that for sequence <i>a<sub>i</sub></i> = <span class="big">(</span> <i><span class="sub-sup"><sup>i</sup><sub>k</sub></i> <span class="big">)</span>, <i>(&Delta;a)<sub>i</sub> = </i><span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span></p>
 			<div class="solution">
 				<p> <em> The solution displays when you hover above it. </em> </p>
-				
 				<div class="hidden-solution">
-					<p> </p>
+					<p>
+				This could be solved algebraically, where you could a few properties of binomial coefficients, but there's also a combinatorial solution. We're ineterested in the number of ways how to choose <i>k</i> elements from <i>i+1</i> (later reffered as the first set) elements minus the number of ways how to choose <i>k</i> elements from <i>i</i> elements (the second set). As the second set is a subset of the first set, you're looking for the number of unordered sets of size <i>k</i> which are a subset of the first set, but not the second. That means they all have to contain the last element from the first set. When this is satisfied the last <i>k-1</i> elements can be chosen arbitrarily from the other <i>i</i> elements. But there are exactly <span class="big">(</span> <i><span class="sub-sup"><sup>  i</sup><sub>k-1</sub></i> <span class="big">)</span> way how to choose it and the statement holds for <i>k>0<i> but we can check that it holds for 0 as well and the statemnet is therefore true.
+					</p>
 				</div>
 			</div>
+		</section>
+		<section>
+			<p>With this statement proven, it's easy to see that such sequence results in a sequence of zeros when differenced <i>k+1</i> times. With each difference the order of binomial coefficient decreases and therefore it must eventually become negative which means it's by deffinition zero. </p>					<p>These are for sure not the only sequences which lead to zero sequences when differenced mulitple times. You've seen in the first problem that the series of squares shares this property, but that is certainly not a binomial coefficient.</p>
+			<p>There are two properties of the differences which can help us to get other sequences which can be differenced to zero. First - if you multiply a sequence by a constant and take a difference of that sequence it's the same as if you took the difference and multiplied it by that same constant. Second - if you sum two sequences and take the difference it's the same as if you did it in the reversed order. These properties are not difficult to prove and you're encouraged to do so if you don't see it at the first glance.</p>
+			<p>From these properties follows that if we take any linear combination of sequences of binomial coefficient they can be reduced to zero by applying differences.</p>
+			<p>With this discovery new questions arose. <em>Are there any other sequences that these which can be reduced to zero? And which sequences are the linear combinations of sequences of binomial coefficients?</em> You might have guessed the answer to the second question. These should be the polynomials. But such statement requires a proof.</p>
+		</section>
+		<section class="problem" id="problem4">
+			<div class="problem-header">
+				<h4> Problem 2.4 </h4>
+			</div>
+			<p>Prove or disprove that the linear combination of sequences of binomial coefficients are the same as the polynomials.
+			<div class="solution">
+				<p> <em> The solution displays when you hover above it. </em> </p>
+				<div class="hidden-solution">
+					<p>
+						This proof should have two parts. The verification that all sequences of binomial coefficients can be writen as polynomials and that all the power sequences can be written as a linear combination of sequences of binomial coefficients.
+					</p>
+					<p>
+						The first part is quite easy. A binomail coefficient of class <i>k</i> is by definition a product of <i>k</i> polynomials of degree 1. It is therefore a polynomial of degree <i>k</i>.
+					</p>
+					<p>
+						The second part is a bit harder and could've been done using the mathematical induction once again - we can get a polynomial with degree one less if we subtract an appropriate multiple of an appropriate binomial coefficient.
+					</p>
+					<p>However there is also prettier and perhaps more difficult to understand solution using linear algebra. If you're not familiar with it feel free to skip this.</p>
+					<p>
+						We want to shove that two vector spaces with two different basis vectors are isomorph. That means that there should be a matrix A which tranforms one basis vector to the other and vice versa. We can transform the powers into the binomial coefficients easily - the <i>k</i>-th binomial coefficient is a polynomial of degree <i>k</i>. We therefore have the matrix A for this tranformation. Note that as the degree is k in the k-th row, the matrix is bottom triangular and has non zero elements on the diagonal. That means it's regular and therefore has an inverse (which is also a bottom triangular matrix). But its inverse transforms the binomial coefficients into the powers and the two vector spaces are therefore equal.
+					</p>
+				</div>
+			</div>
+		</section>
+		<section>
+			<p>
+				So all the polynomial sequences can be reduced to zero by taking the difference. You'll see in the next chapter that these are the only sequences with this property. </p>
+			<p>
+				In this chapter you've seen how to easily take differences of sequences where every element is binomial coefficient of the same class. For any other polynomial it's possible to express it as a linear combination of these sequences and when the coefficient for the linear combination are found, the forward differences of any order can be computed efficiently.
+			</p>
+			<p>
+				If we combine it with the theorem from the end of the last chapter, we see that up to a constant factor we can compute all the partial sums of these sequences as well.
+			</p>
 		</section>
 		</article>
 	</body> 
